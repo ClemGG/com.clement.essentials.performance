@@ -1,0 +1,24 @@
+{
+  "name": "com.clement.essentials.performance",
+  "version": "1.0.0",
+  "displayName": "Unity Application Performance",
+  "description": "Library of scripts to help setup and troubleshoot performance settings for Unity applications.",
+  "unity": "2022.2",
+  "keywords": [
+    "clement",
+    "application",
+    "performance"
+  ],
+  "author": {
+    "name": "Clement Guichard",
+    "email": "clement.guichard@e-artsup.net",
+    "url": "https://clemgg.github.io/"
+  },
+  "samples": [
+    {
+      "displayName": "FPS Logger",
+      "description": "Displays a log message in the update to display the FPS changing when the user focuses or unfocuses on the game window.",
+      "path": "Samples~/FPS Logger"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+    "name": "Clement.Essentials.Performance.Tests.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:bf3d577813da48d498a5452c3ab25a6c",
+        "GUID:8121fc5ac70ebca46ad3b1d4e1c27fa6",
+        "GUID:9795c241a1ef62a4db36a6a2e0abd082"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
