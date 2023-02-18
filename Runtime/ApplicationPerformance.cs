@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ProjectEssentials.ApplicationPerformance
+namespace Essentials.Performance
 {
     /// <summary>
     /// Allows to edit the application's

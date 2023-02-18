@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ProjectEssentials.ApplicationPerformance.Samples
+namespace Essentials.Performance.Samples
 {
     /// <summary>
     /// Prints the application target framerate
