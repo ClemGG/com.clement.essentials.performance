@@ -1,5 +1,5 @@
 {
-  "name": "com.clement.project-essentials.application",
+  "name": "com.clement.essentials.performance",
   "version": "1.0.0",
   "displayName": "Unity Application Performance",
   "description": "Library of scripts to help setup and troubleshoot performance settings for Unity applications.",
