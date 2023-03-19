@@ -10,8 +10,8 @@ namespace Essentials.Performance
     {
         #region Constants
 
-        private const int DEFAULT_FRAMERATE = 60;
-        private const int UNFOCUSED_FRAMERATE = 1;
+        private const int DEFAULT_FOCUSED_FRAMERATE = 60;
+        private const int DEFAULT_UNFOCUSED_FRAMERATE = 1;
 
         #endregion
 
@@ -21,20 +21,44 @@ namespace Essentials.Performance
         /// Cached to restore the user defined framerate
         /// each time we focus back on the game window
         /// </summary>
-        private static int _userDefinedFrameRate = DEFAULT_FRAMERATE;
+        private static int _userDefinedFocusedFrameRate = DEFAULT_FOCUSED_FRAMERATE;
+
+        /// <summary>
+        /// Cached to restore the user defined framerate
+        /// each time the game window is set in the background
+        /// </summary>
+        private static int _userDefinedUnfocusedFrameRate = DEFAULT_UNFOCUSED_FRAMERATE;
 
         #endregion
 
         #region Public methods
 
         /// <summary>
-        /// Sets a new framerate
+        /// Sets a new framerate for when the game is focused
         /// </summary>
         /// <param name="framerate">The new framerate to reach</param>
-        public static void SetFramerate(int framerate)
+        public static void SetFocusedFramerate(int framerate)
         {
             Application.targetFrameRate = framerate;
-            _userDefinedFrameRate = framerate;
+            _userDefinedFocusedFrameRate = framerate;
+        }
+
+        /// <summary>
+        /// Sets a new framerate for when the game runs in the background
+        /// </summary>
+        /// <param name="framerate">The new framerate to reach</param>
+        public static void SetUnfocusedFramerate(int framerate)
+        {
+            _userDefinedUnfocusedFrameRate = framerate;
+        }
+
+        /// <summary>
+        /// Resets the framerates to their respective default values
+        /// </summary>
+        public static void ResetUserDefinedFrameRates()
+        {
+            _userDefinedFocusedFrameRate = DEFAULT_FOCUSED_FRAMERATE;
+            _userDefinedUnfocusedFrameRate = DEFAULT_UNFOCUSED_FRAMERATE;
         }
 
         #endregion
@@ -47,7 +71,8 @@ namespace Essentials.Performance
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSplashScreen)]
         private static void OnBeforeSplashScreen()
         {
-            SetFramerate(DEFAULT_FRAMERATE);
+            SetFocusedFramerate(DEFAULT_FOCUSED_FRAMERATE);
+            SetUnfocusedFramerate(DEFAULT_UNFOCUSED_FRAMERATE);
             Application.lowMemory += OnApplicationLowMemory;
             Application.focusChanged += OnApplicationFocusChanged;
         }
@@ -58,7 +83,7 @@ namespace Essentials.Performance
         /// <param name="focus">TRUE is the application is focus, FALSE if it runs in the background</param>
         private static void OnApplicationFocusChanged(bool focus)
         {
-            Application.targetFrameRate = focus ? _userDefinedFrameRate : UNFOCUSED_FRAMERATE;
+            Application.targetFrameRate = focus ? _userDefinedFocusedFrameRate : _userDefinedUnfocusedFrameRate;
         }
 
         /// <summary>
