@@ -10,7 +10,7 @@ namespace Essentials.Performance
     {
         #region Constants
 
-        private const int DEFAULT_FOCUSED_FRAMERATE = 60;
+        private static readonly int DEFAULT_FOCUSED_FRAMERATE = (int)Screen.currentResolution.refreshRateRatio.value;
         private const int DEFAULT_UNFOCUSED_FRAMERATE = 1;
 
         #endregion
